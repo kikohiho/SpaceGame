@@ -20,7 +20,7 @@ public class Shipcontroller : MonoBehaviour {
         float moveVertical = Input.GetAxis("Vertical");
 
         Vector3 movement = new Vector3(0.0f, 0.0f, moveVertical);
-        transform.rotation = Quaternion.Euler(new Vector3(0, moveHorizontal, 0));
+        Quaternion rotation = Quaternion.Euler(new Vector3(0, moveHorizontal, 0));
 
         rb.AddForce(movement * speed);
 
