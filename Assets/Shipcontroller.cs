@@ -23,6 +23,12 @@ public class Shipcontroller : MonoBehaviour {
         transform.rotation = Quaternion.Euler(new Vector3(0, moveHorizontal, 0));
 
         rb.AddForce(movement * speed);
+
         
+    }
+
+    void Slowdown()
+    {
+
     }
 }
