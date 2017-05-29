@@ -64,6 +64,8 @@ public class Shipcontroller : MonoBehaviour {
         // Movimiento hacia al frente de la nave
         if (Input.GetKey(KeyCode.W))
             rb.AddForce(transform.forward * speed);
+        else if (Input.GetKey(KeyCode.S))
+            rb.AddForce(-transform.forward * speed);
     }
 
     private void Turn()
@@ -75,6 +77,8 @@ public class Shipcontroller : MonoBehaviour {
         //transform.localEulerAngles = euler;
         Quaternion turnRotation = Quaternion.Euler(0.0f, turn, 0.0f);
         rb.MoveRotation(rb.rotation * turnRotation);
+        if (Input.GetKey(KeyCode.A))
+            transform.Rotate(transform.forward, 5);
     }
 
 }
