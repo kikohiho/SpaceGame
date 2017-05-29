@@ -77,8 +77,6 @@ public class Shipcontroller : MonoBehaviour {
         //transform.localEulerAngles = euler;
         Quaternion turnRotation = Quaternion.Euler(0.0f, turn, 0.0f);
         rb.MoveRotation(rb.rotation * turnRotation);
-        if (Input.GetKey(KeyCode.A))
-            transform.Rotate(transform.forward, 5);
     }
 
 }
