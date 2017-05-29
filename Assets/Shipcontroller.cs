@@ -70,6 +70,9 @@ public class Shipcontroller : MonoBehaviour {
     {
         // Rotar la nave en el eje y.
         turn = moveHorizontal * turnSpeed * Time.deltaTime;
+      //  Vector3 euler = transform.localEulerAngles;
+        //euler.z = Mathf.Lerp(euler.z, moveHorizontal, 2.0f * Time.deltaTime);
+        //transform.localEulerAngles = euler;
         Quaternion turnRotation = Quaternion.Euler(0.0f, turn, 0.0f);
         rb.MoveRotation(rb.rotation * turnRotation);
     }
