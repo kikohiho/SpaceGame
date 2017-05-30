@@ -38,7 +38,8 @@ public class Shipcontroller : MonoBehaviour {
     private float moveVertical;
     private float turn;
 
-    public Rigidbody rb;
+    private Rigidbody rb;
+    public ParticleSystem thruster;
 
     private void Start()
     {
@@ -62,11 +63,27 @@ public class Shipcontroller : MonoBehaviour {
     // del Tank tutorial de Unity
     private void Move()
     {
+
         // Movimiento hacia al frente de la nave
         if (Input.GetKey(KeyCode.W))
+        {
             rb.AddForce(transform.forward * speed);
-        else if (Input.GetKey(KeyCode.S))
+            thruster.Play();
+        } else
+        {
+            thruster.Stop();
+        }       
+            
+         
+
+        
+
+        if (Input.GetKey(KeyCode.S))
+        {
             rb.AddForce(-transform.forward * speed);
+            
+        }
+           
     }
 
     private void Turn()
