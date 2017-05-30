@@ -45,6 +45,7 @@ public class Shipcontroller : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
     }
 
+
     private void Update()
     {
         moveHorizontal = Input.GetAxis("Horizontal");
@@ -71,12 +72,20 @@ public class Shipcontroller : MonoBehaviour {
     private void Turn()
     {
         // Rotar la nave en el eje y.
-        turn = moveHorizontal * turnSpeed * Time.deltaTime;
-      //  Vector3 euler = transform.localEulerAngles;
-        //euler.z = Mathf.Lerp(euler.z, moveHorizontal, 2.0f * Time.deltaTime);
-        //transform.localEulerAngles = euler;
-        Quaternion turnRotation = Quaternion.Euler(0.0f, turn, 0.0f);
-        rb.MoveRotation(rb.rotation * turnRotation);
+        //  turn = moveHorizontal * turnSpeed * Time.deltaTime;
+        ////  Vector3 euler = transform.localEulerAngles;
+        //  //euler.z = Mathf.Lerp(euler.z, moveHorizontal, 2.0f * Time.deltaTime);
+        //  //transform.localEulerAngles = euler;
+        //  Quaternion turnRotation = Quaternion.Euler(0.0f, turn, 0.0f);
+        //  rb.MoveRotation(rb.rotation * turnRotation);
+        if (Input.GetKey(KeyCode.A))
+        {
+            rb.AddTorque(transform.up * moveHorizontal);
+        } else if (Input.GetKey(KeyCode.D))
+        {
+            rb.AddTorque(transform.up * moveHorizontal);
+        }
+        
     }
 
 }
